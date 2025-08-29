@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editkaro.in - Social Media Marketing & Video Editing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+    <!-- Background Elements -->
+    <div id="hero-gradient-bg"></div>
+    <canvas id="background-canvas"></canvas>
+    <div class="film-strip left"></div>
+    <div class="film-strip right"></div>
+    <div id="floating-icons-container"></div>
+    <div id="timeline"></div>
+
+    <!-- UI Elements -->
+    <div id="scroll-progress"></div>
+    <div id="custom-cursor"></div>
+    <div id="loader">
+        <div class="loader-brand">Editkaro.in</div>
+        <div id="progress-bar"><div id="progress"></div></div>
+    </div>
+    <button id="accessibility-toggle" class="magnetic-target" aria-label="Toggle Animations">
+        <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+    </button>
+
+    <!-- Header Section -->
+    <header id="main-header" class="py-6 px-4 sm:px-6 lg:px-8 fixed top-0 left-0 w-full z-40 bg-black/50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="logo-text text-3xl font-bold tracking-tighter magnetic-target">Editkaro.in</a>
+            <nav class="hidden md:block">
+                <a href="#services" data-navlink="services" class="nav-link text-lg font-medium text-gray-400 hover:text-white transition duration-300 magnetic-target">Services</a>
+                <a href="#work" data-navlink="work" class="nav-link ml-8 text-lg font-medium text-gray-400 hover:text-white transition duration-300 magnetic-target">Work</a>
+                <a href="#about" data-navlink="about" class="nav-link ml-8 text-lg font-medium text-gray-400 hover:text-white transition duration-300 magnetic-target">About</a>
+                <a href="#contact" data-navlink="contact" class="nav-link ml-8 text-lg font-medium text-gray-400 hover:text-white transition duration-300 magnetic-target">Contact</a>
+            </nav>
+            <a href="#contact" class="hidden md:inline-block cta-primary magnetic-btn magnetic-target">
+                Get in Touch
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden text-white magnetic-target" aria-label="Open menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-sm transform -translate-y-full opacity-0 transition-all duration-300 ease-in-out">
+            <nav class="py-8 px-4 space-y-4">
+                <a href="#services" class="block text-lg font-medium text-gray-400 hover:text-white transition duration-300 py-3 border-b border-gray-800">Services</a>
+                <a href="#work" class="block text-lg font-medium text-gray-400 hover:text-white transition duration-300 py-3 border-b border-gray-800">Work</a>
+                <a href="#about" class="block text-lg font-medium text-gray-400 hover:text-white transition duration-300 py-3 border-b border-gray-800">About</a>
+                <a href="#contact" class="block text-lg font-medium text-gray-400 hover:text-white transition duration-300 py-3 border-b border-gray-800">Contact</a>
+                <a href="#contact" class="block cta-primary text-center mt-6">
+                    Get in Touch
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="pt-24"> <!-- Offset for fixed header -->
+    <!-- Hero Section -->
+    <section id="hero-section" data-section="hero" class="text-center pt-20 lg:pt-32 px-4 sm:px-6 lg:px-8 min-h-screen flex flex-col justify-center">
+        <div class="background-text">EDIT</div>
+        
+        <h2 class="hero-title text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-tight mb-6" data-animate>
+            We craft compelling<br>
+            <span class="hero-highlight">visual stories</span> that convert.
+        </h2>
+        
+        <p class="hero-description text-gray-400 mb-8" data-animate style="transition-delay: 0.2s;">
+            Editkaro.in is a creative powerhouse specializing in social media marketing and video editing. We transform raw footage into captivating narratives that drive engagement and results.
+        </p>
+        
+        <div class="hero-cta-container" data-animate style="transition-delay: 0.3s;">
+            <button class="hero-cta-primary magnetic-btn magnetic-target">
+                View Our Work
+                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+            </button>
+            <button class="hero-cta-secondary magnetic-target">
+                <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+                Start Project
+            </button>
+        </div>
+        
+        <div id="scroll-indicator"></div>
+    </section>
+
+    <!-- Marquee Section -->
+    <section class="marquee" data-animate>
+        <div class="marquee-content">
+            <span class="marquee-item">VIDEO EDITING</span><span class="marquee-item">MOTION GRAPHICS</span><span class="marquee-item">COLOR GRADING</span><span class="marquee-item">SOCIAL MEDIA STRATEGY</span><span class="marquee-item">CONTENT CREATION</span>
+            <span class="marquee-item">VIDEO EDITING</span><span class="marquee-item">MOTION GRAPHICS</span><span class="marquee-item">COLOR GRADING</span><span class="marquee-item">SOCIAL MEDIA STRATEGY</span><span class="marquee-item">CONTENT CREATION</span>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" data-section="services">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-block px-4 py-2 rounded-full bg-white/10 text-gray-300 text-sm font-medium mb-4 border border-white/20" data-animate>
+                    What We Do
+                </div>
+                <h3 class="section-heading mb-6" data-animate>Our Services</h3>
+                <p class="text-xl max-w-2xl mx-auto text-gray-400" data-animate style="transition-delay: 0.2s;">We offer a comprehensive suite of services to elevate your brand's visual identity and digital presence.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" data-animate-stagger>
+                <div class="service-card text-center magnetic-target group">
+                    <div class="service-icon">🎬</div>
+                    <h4 class="service-title">Video Editing</h4>
+                    <p class="service-description">From short-form reels to long-form documentaries, we craft seamless and engaging edits that tell your story.</p>
+                    <div class="service-learn-more">
+                        Learn More
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="service-card text-center magnetic-target group">
+                    <div class="service-icon">⚡</div>
+                    <h4 class="service-title">Motion Graphics</h4>
+                    <p class="service-description">Bring your brand to life with dynamic animations, titles, and visual effects that captivate audiences.</p>
+                    <div class="service-learn-more">
+                        Learn More
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="service-card text-center magnetic-target group">
+                    <div class="service-icon">🎨</div>
+                    <h4 class="service-title">Color Grading</h4>
+                    <p class="service-description">Set the perfect mood and create a cinematic look with professional color correction and grading.</p>
+                    <div class="service-learn-more">
+                        Learn More
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="service-card text-center magnetic-target group">
+                    <div class="service-icon">📈</div>
+                    <h4 class="service-title">Social Strategy</h4>
+                    <p class="service-description">We develop data-driven strategies to maximize your content's reach and impact across all platforms.</p>
+                    <div class="service-learn-more">
+                        Learn More
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <main id="work" data-section="work" class="px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black/10 to-transparent">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-block px-4 py-2 rounded-full bg-white/10 text-gray-300 text-sm font-medium mb-4 border border-white/20" data-animate>
+                    Portfolio
+                </div>
+                <h3 class="section-heading mb-6" data-animate>Our Work</h3>
+                <p class="text-xl max-w-2xl mx-auto text-gray-400" data-animate style="transition-delay: 0.2s;">
+                    Explore our portfolio of successful projects across different industries and platforms.
+                </p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-3 mb-12" data-animate style="transition-delay: 0.3s;">
+                <button class="filter-btn active py-3 px-6 rounded-full text-sm md:text-base font-medium border border-gray-700 hover:border-white hover:bg-white/5 transition-all duration-300 magnetic-target" data-filter="all">All Projects</button>
+                <button class="filter-btn py-3 px-6 rounded-full text-sm md:text-base font-medium border border-gray-700 hover:border-white hover:bg-white/5 transition-all duration-300 magnetic-target" data-filter="short-form">Short-form</button>
+                <button class="filter-btn py-3 px-6 rounded-full text-sm md:text-base font-medium border border-gray-700 hover:border-white hover:bg-white/5 transition-all duration-300 magnetic-target" data-filter="long-form">Long-form</button>
+                <button class="filter-btn py-3 px-6 rounded-full text-sm md:text-base font-medium border border-gray-700 hover:border-white hover:bg-white/5 transition-all duration-300 magnetic-target" data-filter="gaming">Gaming</button>
+                <button class="filter-btn py-3 px-6 rounded-full text-sm md:text-base font-medium border border-gray-700 hover:border-white hover:bg-white/5 transition-all duration-300 magnetic-target" data-filter="ecommerce">eCommerce</button>
+                <button class="filter-btn py-3 px-6 rounded-full text-sm md:text-base font-medium border border-gray-700 hover:border-white hover:bg-white/5 transition-all duration-300 magnetic-target" data-filter="ads">Advertisements</button>
+            </div>
+            <div id="video-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-animate-stagger></div>
+        </div>
+    </main>
+
+    <!-- About Section -->
+    <section id="about" data-section="about" class="bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="section-heading" data-animate>The Editkaro Difference</h3>
+                <p class="mt-4 max-w-2xl mx-auto text-gray-400" data-animate style="transition-delay: 0.2s;">We blend creativity with data-driven strategy to produce content that not only looks amazing but also achieves your business goals.</p>
+            </div>
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 text-center" data-animate-stagger>
+                <div class="border border-gray-800 p-8 rounded-lg"><h4 class="text-5xl font-bold text-white">50+</h4><p class="mt-2 text-gray-400">Happy Clients</p></div>
+                <div class="border border-gray-800 p-8 rounded-lg"><h4 class="text-5xl font-bold text-white">500+</h4><p class="mt-2 text-gray-400">Projects Completed</p></div>
+                <div class="border border-gray-800 p-8 rounded-lg"><h4 class="text-5xl font-bold text-white">10M+</h4><p class="mt-2 text-gray-400">Views Generated</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <footer id="contact" data-section="contact" class="px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div data-animate>
+                <h3 class="text-4xl md:text-5xl font-bold tracking-tighter">Ready to elevate your content?</h3>
+                <p class="mt-4 text-lg text-gray-400">Let's collaborate. Fill out the form or email us directly.</p>
+                <form class="mt-8 space-y-8">
+                    <div class="form-group"><input type="text" id="name" placeholder=" " class="form-input magnetic-target"><label for="name" class="form-label">Your Name</label></div>
+                    <div class="form-group"><input type="email" id="email" placeholder=" " class="form-input magnetic-target"><label for="email" class="form-label">Your Email</label></div>
+                    <div class="form-group"><textarea id="project" placeholder=" " rows="5" class="form-input magnetic-target"></textarea><label for="project" class="form-label">Tell us about your project</label></div>
+                    <button type="submit" class="w-full bg-white text-black font-semibold py-4 px-10 rounded-full text-lg hover:bg-gray-200 transition duration-300 magnetic-btn magnetic-target cta-btn">Send Message</button>
+                </form>
+            </div>
+            <div class="mt-8 lg:mt-0" data-animate style="transition-delay: 0.2s;">
+                <h4 class="text-3xl font-bold mb-6">Frequently Asked Questions</h4>
+                <div class="space-y-4">
+                    <div class="faq-item bg-gray-900 border border-gray-800 rounded-lg"><details><summary class="p-5 cursor-pointer flex justify-between items-center font-medium magnetic-target">What's your turnaround time?<span class="icon text-xl">+</span></summary><p class="p-5 pt-0 text-gray-400">Typical turnaround for short-form videos is 2-3 business days, while long-form projects vary based on complexity. We can discuss specifics for your project.</p></details></div>
+                    <div class="faq-item bg-gray-900 border border-gray-800 rounded-lg"><details><summary class="p-5 cursor-pointer flex justify-between items-center font-medium magnetic-target">What types of files do you accept?<span class="icon text-xl">+</span></summary><p class="p-5 pt-0 text-gray-400">We accept all standard video formats. We recommend sending the highest quality source files you have via Google Drive, Dropbox, or WeTransfer.</p></details></div>
+                    <div class="faq-item bg-gray-900 border border-gray-800 rounded-lg"><details><summary class="p-5 cursor-pointer flex justify-between items-center font-medium magnetic-target">Do you offer revision rounds?<span class="icon text-xl">+</span></summary><p class="p-5 pt-0 text-gray-400">Yes, all our packages include two rounds of revisions to ensure you are 100% satisfied with the final product.</p></details></div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-20 pt-8 border-t border-gray-800 text-center text-gray-500">&copy; <span id="year"></span> Editkaro.in. All rights reserved.</div>
+    </footer>
+    </div>
+
+    <!-- Video Lightbox -->
+    <div id="lightbox">
+        <div id="lightbox-content">
+            <button id="close-lightbox" class="magnetic-target" aria-label="Close video player">&times;</button>
+            <div id="lightbox-video-container">
+                <video id="lightbox-video" controls autoplay muted loop playsinline></video>
+            </div>
+            <div id="lightbox-details">
+                <h3 id="lightbox-title" class="lightbox-item text-2xl font-bold mb-2"></h3>
+                <p id="lightbox-client" class="lightbox-item text-lg text-gray-400 mb-4"></p>
+                <p id="lightbox-description" class="lightbox-item text-gray-300 mb-4"></p>
+                <div class="lightbox-item border-t border-gray-700 pt-4">
+                    <h4 class="font-bold mb-2">Results</h4>
+                    <p id="lightbox-results" class="text-gray-300"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
